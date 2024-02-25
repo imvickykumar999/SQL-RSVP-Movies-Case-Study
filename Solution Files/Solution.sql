@@ -117,6 +117,13 @@ where (country like '%INDIA%'
 	and year = 2019;
 
 
+
+select count(distinct id) as number_of_movies, year 
+from movie where (country like '%INDIA%' or country like '%USA%') 
+group by year having year = 2019;
+
+
+
 /* USA and India produced more than a thousand movies(you know the exact number!) in the year 2019.
 Exploring table Genre would be fun!! 
 Let’s find out the different genres in the dataset.*/
@@ -127,6 +134,8 @@ Let’s find out the different genres in the dataset.*/
 select distinct genre
 from genre;
 
+
+---------------------------- Continue ---------------------------------
 
 /* So, RSVP Movies plans to make a movie of one of these genres.
 Now, wouldn’t you want to know which genre had the highest number of movies produced in the last year?
