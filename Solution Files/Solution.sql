@@ -95,6 +95,15 @@ select year,
 from movie
 group by year;
 
+/*
+select year(date_published) as year_num,
+	count(*) as number_of_movies
+from movie
+group by year_num
+order by year_num;
+*/
+
+
 select month(date_published) as month_num,
 	count(*) as number_of_movies
 from movie
@@ -117,11 +126,11 @@ where (country like '%INDIA%'
 	and year = 2019;
 
 
-
+/*
 select count(distinct id) as number_of_movies, year 
 from movie where (country like '%INDIA%' or country like '%USA%') 
 group by year having year = 2019;
-
+*/
 
 
 /* USA and India produced more than a thousand movies(you know the exact number!) in the year 2019.
@@ -135,7 +144,7 @@ select distinct genre
 from genre;
 
 
----------------------------- Continue ---------------------------------
+---------------------------- Doubt ---------------------------------
 
 /* So, RSVP Movies plans to make a movie of one of these genres.
 Now, wouldn’t you want to know which genre had the highest number of movies produced in the last year?
@@ -143,6 +152,7 @@ Combining both the movie and genres table can give more interesting insights. */
 
 -- Q6.Which genre had the highest number of movies produced overall?
 -- Type your code below:
+
 
 select genre,
 	count(m.id) as number_of_movies, 
@@ -154,6 +164,8 @@ group by genre
 order by number_of_movies 
 desc limit 1;
 
+
+---------------------------- Doubt ---------------------------------
 
 /* So, based on the insight that you just drew, RSVP Movies should focus on the ‘Drama’ genre. 
 But wait, it is too early to decide. A movie can belong to two or more genres. 
@@ -173,9 +185,13 @@ select count(*) as movies_with_one_genre
 from cte_genre;
 
 
+---------------------------- Continue ---------------------------------
+
+
 /* There are more than three thousand movies which has only one genre associated with them.
 So, this figure appears significant. 
 Now, let's find out the possible duration of RSVP Movies’ next project.*/
+
 
 -- Q8.What is the average duration of movies in each genre? 
 -- (Note: The same movie can belong to multiple genres.)
